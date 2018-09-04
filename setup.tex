@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage{listings}
+
+%Listings Settings
+\lstset{frame=tb,
+language=bash,
+aboveskip=3mm,
+belowskip=3mm,
+showstringspaces=false,
+columns=flexible,
+basicstyle={\ttfamily}
+}
+
+%Custom Commands
+\newcommand{\git}{{\texttt{git}}}
+\newcommand{\github}{{\texttt{Github}}}
+\newcommand{\Python}{{\texttt{Python}}}
+\newcommand{\python}{{\texttt{python}}}
+\newcommand{\Anaconda}{{\texttt{Anaconda}}}
+
+\begin{document}
+
+\begin{center}
+
+\vspace*{-2.5cm}
+\LARGE
+\bf{Setting up Scientific Software!}
+\vspace{1cm}
+\end{center}
+
+\section{Installation}
+
+\subsection{Beginner: For All Platforms}
+
+\begin{enumerate}
+
+	\item Download the \git{} installer from \texttt{https://git-scm.com/download}.  Run the installer, accept the default options.
+	\item Download the \Anaconda{} python distribution from \texttt{https://www.continuum.io/downloads}.  Run the installer, accept the default options.
+	\item You're done! Silently thank the internet for making programming so easy, and shudder at the thought of coding in the 1980s and having to install everything by hand from mail-order diskettes.
+	
+\end{enumerate}
+	
+\subsection{Advanced: Mac}
+
+\begin{enumerate}
+	\item Install the Apple Command Line Tools: \begin{lstlisting}
+	$ xcode-select --install
+	\end{lstlisting}
+	\item Install the Homebrew package manager from \texttt{http://brew.sh}.  You can do this immediately by running this in a terminal:
+	\begin{lstlisting}
+	$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/
+		Homebrew/install/master/install)"
+	\end{lstlisting}
+	Note: the command should be all on one line, with no spaces in the web address.
+	\item Install \git{} and \python{} using Homebrew: \begin{lstlisting}
+	$ brew install git
+	$ brew install python
+	\end{lstlisting}
+	\item That installed \texttt{pip} as well, which we can use for installing packages: \begin{lstlisting}
+	$ pip install -U pip  #This upgrades pip
+	$ pip install numpy
+	$ pip install matplotlib
+	$ pip install scipy
+	\end{lstlisting}
+	\item You're done!  That wasn't so bad, was it?
+\end{enumerate}
+	
+\subsection{Advanced: Linux}
+
+	Mac and Linux are very similar, so this method is almost the same as for Mac!  Instead of Homebrew, use the appropriate package manager for your version of Linux, probably \texttt{apt-get} or \texttt{yum}.
+
+
+	
+\section{Configuration}
+
+We'll configure everything from the command line.  On Mac or Linux, open up a Terminal. On Windows, use the ``Git Bash''  program which was installed with \git{}. 
+
+For Windows Users: ``Git Bash'' and \python{} do not always play nicely together.  To run python programs, you may have to run:
+ \begin{lstlisting}
+	$ winpty python python_script.py
+\end{lstlisting}
+instead of the usual
+ \begin{lstlisting}
+	$ python python_script.py
+\end{lstlisting} 
+Otherwise everything should be the same.
+
+\subsection{Testing Your Installation}
+
+\begin{enumerate}
+\item In your terminal, type \texttt{git --help} and press return.  If you get a long message, \git{} is installed.
+\item Now, in your terminal try running \python{}.  You should get some text, and a prompt that looks like \texttt{>>>}. If not, \Python{} is not installed properly.
+\item Check if you have the necessary libraries.  In your terminal, running python, do: \begin{lstlisting}
+>>> import numpy
+>>> import matplotlib
+\end{lstlisting}
+If both statements run without error, you have everything you need to start scientific computing!
+\end{enumerate}
+
+
+\end{document}
